@@ -22,3 +22,10 @@ boxes.forEach((box) => {
         box.style.opacity = 1;
     });
 });
+
+
+clearBtn.addEventListener('click', () => {
+    boxes.forEach((box) => {
+        box.style.opacity = 0;
+    });
+});
