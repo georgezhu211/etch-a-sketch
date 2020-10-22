@@ -1,0 +1,17 @@
+.container {
+    border: 1px solid #2d6187;
+    width: 720px;
+    height: 720px;
+    margin: 70px auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.box {
+    height: 180px;
+    width: 180px;
+    border: 1px solid #2d6187;
+    box-sizing: border-box;
+    background-color: #28abb9;
+    opacity: 0;
+}
