@@ -9,23 +9,52 @@ function generateGrid(num) {
         box.style.height = (720/num).toString() + "px";
         container.appendChild(box);
     }
+    addHover();
 }
 
-generateGrid(20);
+function addHover() {
+    const boxes = document.querySelectorAll('.box');
+    boxes.forEach((box) => {
+        box.addEventListener('mouseover', () => {
+            box.style.opacity = 1;
+        });
+    });
+}
 
-const boxes = document.querySelectorAll('.box');
+function randomColor() {
+    const randomColor = MMath.floor(Math.random()*16777215).toString(16);
+    return "#" + randomColor;
+}
+
+generateGrid(6);
+
+
 const newBtn = document.querySelector('.new-btn');
 const clearBtn = document.querySelector('.clear-btn');
+const rainbowBtn = document.querySelector('.rainbow-btn');
 
-boxes.forEach((box) => {
-    box.addEventListener('mouseover', () => {
-        box.style.opacity = 1;
+clearBtn.addEventListener('click', () => {
+    const boxes = document.querySelectorAll('.box');
+    boxes.forEach((box) => {
+        box.style.opacity = 0;
     });
 });
 
-
-clearBtn.addEventListener('click', () => {
+newBtn.addEventListener('click', () => {
+    const boxes = document.querySelectorAll('.box');
     boxes.forEach((box) => {
+        container.removeChild(box)
+    });
+    let answer = prompt("Enter a number between 2-100: ");
+    generateGrid(answer);
+});
+
+rainbowBtn.addEventListener('click', () => {
+    const boxes = document.querySelectorAll('.box');
+    
+    boxes.forEach((box) => {
+        const randomColor = "#" + Math.floor(Math.random()*16777215).toString(16);
+        box.style.backgroundColor = randomColor;
         box.style.opacity = 0;
     });
 });
